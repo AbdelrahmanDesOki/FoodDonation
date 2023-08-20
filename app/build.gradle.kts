@@ -70,5 +70,10 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation ("org.apache.httpcomponents:httpclient-android:4.3.5.1")
     implementation ("org.json:json:20201115")
+    implementation ("androidx.activity:activity-compose:1.3.1")
+    implementation ("androidx.compose.ui:ui-tooling:1.0.1")
+    implementation ("androidx.compose.material:material:1.0.1")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.0.1")
+
 
 }
