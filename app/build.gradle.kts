@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id ("io.realm.kotlin")
 }
 
 android {
@@ -74,6 +75,16 @@ dependencies {
     implementation ("androidx.compose.ui:ui-tooling:1.0.1")
     implementation ("androidx.compose.material:material:1.0.1")
     implementation ("androidx.compose.runtime:runtime-livedata:1.0.1")
+
+    implementation ("io.realm.kotlin:library-sync:1.6.0")
+    implementation ("io.realm.kotlin:library-base:1.11.0")
+    implementation ("io.realm.kotlin:library-sync:1.11.0")// If using Device Sync
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0") // If using coroutines with the SDK
+
+//    implementation("com.github.stevdza-san:MessageBarCompose:1.0.5")
+//    implementation("com.github.stevdza-san:OneTapCompose:1.0.0")
+
+
 
 
 }

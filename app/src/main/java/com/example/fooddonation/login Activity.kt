@@ -120,6 +120,14 @@ fun SignUpPage(onLoginClick: () -> Unit) {
     var email_sign_up by remember { mutableStateOf("") }
     var password_sign_up by remember { mutableStateOf("") }
     val focusManager_up = LocalFocusManager.current
+
+
+    fun insertUSer (){
+
+
+    }
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
