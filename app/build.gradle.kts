@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.fooddonation"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.fooddonation"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -52,16 +52,16 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation("androidx.activity:activity-compose:1.7.0")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.activity:activity-compose:1.7.2")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("com.android.volley:volley:1.2.1")
-    implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.8")
+    implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -71,18 +71,14 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation ("org.apache.httpcomponents:httpclient-android:4.3.5.1")
     implementation ("org.json:json:20201115")
-    implementation ("androidx.activity:activity-compose:1.3.1")
-    implementation ("androidx.compose.ui:ui-tooling:1.0.1")
-    implementation ("androidx.compose.material:material:1.0.1")
-    implementation ("androidx.compose.runtime:runtime-livedata:1.0.1")
-
-    implementation ("io.realm.kotlin:library-sync:1.6.0")
+    implementation ("androidx.activity:activity-compose:1.7.2")
+    implementation ("androidx.compose.ui:ui-tooling:1.5.1")
+    implementation ("androidx.compose.material:material:1.5.1")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.5.1")
+    implementation("androidx.navigation:navigation-compose:2.7.2")
     implementation ("io.realm.kotlin:library-base:1.11.0")
     implementation ("io.realm.kotlin:library-sync:1.11.0")// If using Device Sync
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0") // If using coroutines with the SDK
-
-//    implementation("com.github.stevdza-san:MessageBarCompose:1.0.5")
-//    implementation("com.github.stevdza-san:OneTapCompose:1.0.0")
+//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1") // If using coroutines with the SDK
 
 
 

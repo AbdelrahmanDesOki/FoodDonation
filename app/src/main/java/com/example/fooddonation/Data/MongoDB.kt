@@ -1,6 +1,5 @@
 package com.example.fooddonation.Data
 
-import com.example.fooddonation.App
 import com.example.fooddonation.constants.constant.APP_ID
 import io.realm.kotlin.Realm
 
