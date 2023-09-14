@@ -33,7 +33,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.fooddonation.ui.HomeView
-
+import android.content.Context
+import android.content.SharedPreferences
 
 @Composable
 fun Navigation(){
@@ -59,10 +60,7 @@ fun SignupScreen(navController: NavController) {
     val focusManager_up = LocalFocusManager.current
 
 
-    fun insertUSer() {
 
-
-    }
 
 
     Column(
@@ -180,6 +178,7 @@ fun SignupScreen(navController: NavController) {
 }  
 @Composable
 fun loginScreen(navController: NavController){
+
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var isButtonEnabled by remember { mutableStateOf(false) }
