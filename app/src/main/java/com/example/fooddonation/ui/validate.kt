@@ -7,7 +7,7 @@ import com.example.fooddonation.Navigation.Navigation
 
 class validate: AppCompatActivity() {
 
-    val username = Navigation()
+//    val username = Navigation()
     fun validateUSer() {
 
         val  SharedPreferences = getSharedPreferences("PRE", Context.MODE_PRIVATE)
