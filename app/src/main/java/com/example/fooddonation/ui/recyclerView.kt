@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.MaterialTheme
@@ -57,13 +58,7 @@ fun ListItem(name: String){
         if (expanded.value) 15.dp else 0.dp,
         animationSpec = spring(
             dampingRatio = Spring.DampingRatioMediumBouncy,
-            stiffness = Spring.StiffnessLow
-        )
-    )
-
-
-
-
+            stiffness = Spring.StiffnessLow))
 
     Surface(
         color = MaterialTheme.colorScheme.primary,
@@ -78,22 +73,35 @@ fun ListItem(name: String){
                 Column(
                     modifier = Modifier.weight(1f)
                 ) {
-                        Text(text = "First Item")
+                        Text(text = "Extra Cake ")
                         Text(
                             text = name,
                             style = MaterialTheme.typography.bodyMedium
                                 .copy(fontWeight = FontWeight.ExtraBold)
                         )
                 }
-                OutlinedButton(onClick = { expanded.value = !expanded.value }, colors = ButtonDefaults.buttonColors( Color.Magenta)) {
+
+                OutlinedButton(onClick = { expanded.value = !expanded.value },
+                    colors = ButtonDefaults.buttonColors( Color.Magenta),
+                    modifier = Modifier.padding(0.dp)
+
+                ) {
                     Text( if(expanded.value) "Show Less" else "Show More")
+                }
+
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors( Color.Magenta)
+
+
+                ) {
+                    Text(text = "✉️")
                 }
             }
 
             if(expanded.value){
 
                 Column(modifier = Modifier.padding(
-                    bottom = extraPadding.coerceAtLeast(0.dp)
+                    bottom = extraPadding.coerceAtLeast(5.dp)
                 )) {
                      Text(text = "My food item is listed as it will expire in 3 days, contact me if you are interested")
                 }
@@ -110,7 +118,7 @@ fun RecyclerView(names: List<String> = List(1000){"$it"}){
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(5.dp)
-                .clickable {  }
+                .clickable { }
 
 
 
