@@ -3,16 +3,25 @@ package com.example.fooddonation.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -25,13 +34,7 @@ class recyclerView : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FoodDonationTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting2("Android")
-                }
+               RecyclerView()
             }
         }
     }
@@ -40,11 +43,23 @@ class recyclerView : ComponentActivity() {
 
 @Composable
 fun ListItem(name: String){
+
+    val expanded = remember { mutableStateOf(false) }
+    val extraPadding by animateDpAsState(
+        if (expanded.value) 15.dp else 0.dp,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow
+        )
+    )
+
+
+
     Surface(
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)){
         Column(modifier = Modifier
-            .padding(24.dp)
+            .padding(15.dp)
             .fillMaxWidth()) {
 
             Row {
@@ -58,8 +73,17 @@ fun ListItem(name: String){
                                 .copy(fontWeight = FontWeight.ExtraBold)
                         )
                 }
-                OutlinedButton(onClick = { /*TODO*/ }) {
-                    Text(text = "Show More", color = Color.Magenta)
+                OutlinedButton(onClick = { expanded.value = !expanded.value }, colors = ButtonDefaults.buttonColors( Color.Magenta)) {
+                    Text( if(expanded.value) "Show Less" else "Show More")
+                }
+            }
+
+            if(expanded.value){
+
+                Column(modifier = Modifier.padding(
+                    bottom = extraPadding.coerceAtLeast(0.dp)
+                )) {
+                     Text(text = "My food item is listed as it will expire in 3 days, contact me if you are interested")
                 }
             }
         }
@@ -69,7 +93,13 @@ fun ListItem(name: String){
 
 @Composable
 fun RecyclerView(names: List<String> = List(1000){"$it"}){
+    LazyColumn(modifier = Modifier.padding(vertical = 4.dp)){
 
+        items(items=names){
+            name->
+            ListItem(name = name)
+        }
+    }
 }
 
 @Composable
@@ -85,6 +115,7 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview2() {
     FoodDonationTheme {
 //        Greeting2("Android")
-ListItem(name = "1" )
+//ListItem(name = "1" )
+        RecyclerView()
     }
 }

@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.fooddonation.Navigation.Navigation
+import com.example.fooddonation.ui.RecyclerView
 import com.example.fooddonation.ui.theme.FoodDonationTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,6 +28,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                   Navigation()
+//                    RecyclerView()
 //                    Greeting("Android")
                 }
             }
