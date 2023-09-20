@@ -50,7 +50,7 @@ class ItemDetails : ComponentActivity() {
     }
 }
 @Composable
-fun Details(name: String){
+fun Details(){
     var Title by remember { mutableStateOf("") }
     var details by remember { mutableStateOf("") }
     val focusManager_up = LocalFocusManager.current
@@ -95,6 +95,44 @@ fun Details(name: String){
                          ),
                          modifier = Modifier.fillMaxWidth()
                      )
+
+                     Spacer(modifier = Modifier.height(16.dp))
+
+                     OutlinedTextField(
+                         value = details,
+                         onValueChange = {
+                             details = it
+                         },
+                         label = { androidx.compose.material.Text("Details", color = Color.White) },
+                         keyboardOptions = KeyboardOptions(
+                             imeAction = ImeAction.Next
+                         ),
+                         keyboardActions = KeyboardActions(
+                             onNext = {
+                                 focusManager_up.clearFocus()
+                             }
+                         ),
+                         modifier = Modifier.fillMaxWidth().height(120.dp)
+                     )
+
+                     Spacer(modifier = Modifier.height(260.dp))
+
+
+                     //Apply maps view here
+
+
+
+                     Button(onClick = { /*TODO*/ },
+                         modifier = Modifier
+                             .padding(10.dp)
+                             .fillMaxWidth()
+                             .background(Color.Magenta)
+
+                     ) {
+
+                         Text(text = "Add Item to the List")
+                     }
+
                  }
              }
         }
@@ -118,6 +156,6 @@ fun Greeting3(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview3() {
     FoodDonationTheme {
 //        Greeting3("Android")
-        Details("1")
+        Details()
     }
 }
