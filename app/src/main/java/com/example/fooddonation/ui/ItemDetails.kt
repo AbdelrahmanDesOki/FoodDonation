@@ -1,5 +1,6 @@
 package com.example.fooddonation.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.telecom.Call.Details
 import androidx.activity.ComponentActivity
@@ -31,7 +32,9 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.fooddonation.ui.ui.theme.FoodDonationTheme
+
 
 class ItemDetails : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,9 +51,14 @@ class ItemDetails : ComponentActivity() {
             }
         }
     }
+
 }
+
+
+
 @Composable
-fun Details(){
+fun Details(navController: NavController){
+
     var Title by remember { mutableStateOf("") }
     var details by remember { mutableStateOf("") }
     val focusManager_up = LocalFocusManager.current
@@ -112,21 +120,32 @@ fun Details(){
                                  focusManager_up.clearFocus()
                              }
                          ),
-                         modifier = Modifier.fillMaxWidth().height(120.dp)
+                         modifier = Modifier
+                             .fillMaxWidth()
+                             .height(120.dp)
                      )
 
-                     Spacer(modifier = Modifier.height(260.dp))
+                     Spacer(modifier = Modifier.height(16.dp))
 
 
                      //Apply maps view here
+                    Button(  onClick = {
+                    },
+                        modifier = Modifier.padding(16.dp)
+                            .padding(10.dp)
+                            .fillMaxWidth()
+                            .background(Color.DarkGray)
 
+                        ) {
+                        Text(text = "Add your Location")
+                    }
 
 
                      Button(onClick = { /*TODO*/ },
                          modifier = Modifier
                              .padding(10.dp)
                              .fillMaxWidth()
-                             .background(Color.Magenta)
+                             .background(Color.DarkGray)
 
                      ) {
 
@@ -156,6 +175,6 @@ fun Greeting3(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview3() {
     FoodDonationTheme {
 //        Greeting3("Android")
-        Details()
+//        Details()
     }
 }

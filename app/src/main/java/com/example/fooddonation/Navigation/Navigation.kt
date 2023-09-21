@@ -48,6 +48,8 @@ fun Navigation(){
         composable(route=Screen.singupScreen.route){
             SignupScreen(navController = navController)
         }
+
+
     }
 }
 
