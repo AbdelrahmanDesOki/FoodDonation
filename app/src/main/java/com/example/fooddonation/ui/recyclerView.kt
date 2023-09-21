@@ -82,7 +82,7 @@ fun ListItem(name: String){
                 }
 
                 OutlinedButton(onClick = { expanded.value = !expanded.value },
-                    colors = ButtonDefaults.buttonColors( Color.Magenta),
+                    colors = ButtonDefaults.buttonColors( Color.DarkGray),
                     modifier = Modifier.padding(0.dp)
 
                 ) {
@@ -90,7 +90,7 @@ fun ListItem(name: String){
                 }
 
                 Button(onClick = { /*TODO*/ },
-                    colors = ButtonDefaults.buttonColors( Color.Magenta)
+                    colors = ButtonDefaults.buttonColors( Color.DarkGray)
 
 
                 ) {
@@ -119,8 +119,6 @@ fun RecyclerView(names: List<String> = List(1000){"$it"}){
                 .fillMaxWidth()
                 .padding(5.dp)
                 .clickable { }
-
-
 
         )
         {

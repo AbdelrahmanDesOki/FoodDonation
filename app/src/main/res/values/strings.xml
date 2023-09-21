@@ -2,4 +2,5 @@
     <string name="app_name">FoodDonation</string>
     <string name="title_activity_recycler_view">recyclerView</string>
     <string name="title_activity_item_details">ItemDetails</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
